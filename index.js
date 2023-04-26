@@ -112,3 +112,41 @@ app.post('/remove_product', function(req,res){
     calculateTotal(cart,req)
     res.redirect('/cart')
 })
+
+
+
+app.post('/edit_product_quantity', function(req,res){
+
+    // get values from  input 
+
+    var  id =  req.body.id;
+    var quantity = req.body.quantity;
+    var increase_btn = req.body.increase_product_quantity;
+    var decrease_btn = req.body.decrease_product_quantity;
+  
+
+    var cart = req.session.cart;
+    if(increase_btn){
+        for(let i=0; i<cart.length; i++){
+            if(cart[i].id == id){
+                if(cart[i].quantity > 0){
+                    cart[i].quantity = parseInt(cart[i].quantity)+1;
+                }
+            }
+        }
+    }
+
+    if(decrease_btn){
+        for(let i=0; i<cart.length; i++){
+            if(cart[i].id == id){
+                if(cart[i].quantity > 1){
+                    cart[i].quantity = parseInt(cart[i].quantity)-1;
+                }
+            }
+        }
+    }
+
+
+    calculateTotal(cart,req)
+    res.redirect('/cart')
+})

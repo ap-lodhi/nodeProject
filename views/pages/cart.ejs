@@ -199,11 +199,11 @@
             </td>
 
             <td>
-              <form>
-                 <input type="submit" value="-" class="edit-btn " name="decrease_product_quantity_btn">
+              <form method="post" action="/edit_product_quantity">
+                 <input type="hidden" value="<%= item.id %>"   name="id">
       
-                <input type="text" name="quantity" value="1" readonly="">
-
+                <input type="submit" name="decrease_product_quantity" value="-" class="edit-btn">
+                <input type="text" name="quantity" value="<%= item.quantity %>">
                 <input type="submit" value="+" class="edit-btn" name="increase_product_quantity_btn">
               </form>
             </td>
