@@ -203,7 +203,7 @@
                  <input type="hidden" value="<%= item.id %>"   name="id">
       
                 <input type="submit" name="decrease_product_quantity" value="-" class="edit-btn">
-                <input type="text" name="quantity" value="<%= item.quantity %>">
+                <input type="text" name="quantity" value="<%= item.quantity %>" readonly>
                 <input type="submit" value="+" class="edit-btn" name="increase_product_quantity_btn">
               </form>
             </td>
@@ -242,7 +242,7 @@
 
     <div class="checkout-container">
      
-      <form>
+      <form method="'get", action="/checkout">
         <input type="submit" class="btn checkout-btn" value="Checkout" name="">
       </form>
     
