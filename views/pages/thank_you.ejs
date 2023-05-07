@@ -164,9 +164,9 @@
 
         <section class="cart container py-5">
           <div class="container m-2 text-center">
-            <h4>Payment</h4>
-            <h2>Total : $<%= total %></h2>
-            <div id="paypal-button-container"></div>
+            <h4>Thank you</h4>
+            <h2>You order id is: $<%= order_id %></h2>
+              <h3>we will deliver your product within 2 bussiness day</h3>
           </div>
         </section>
       </div>
@@ -262,20 +262,9 @@
     <!-- End Google Map -->
   
 
-
-    </body>
-</html>
-
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-  </head>
-  <body>
-    <!-- Replace "test" with your own sandbox Business account app client ID -->
-   <script src="https://www.paypal.com/sdk/js?client-id=AedvqiDtT6oo0TzOf0vdLxZ1OZh0gtRPxkLI7-qF5zpMTFniKTjlxhO7ydZnPnJ6UWLC51JC0r_muELq&currency=USD"></script>
+<script src="https://www.paypal.com/sdk/js?client-id=AV7kitZJ9Js2uKUf7JpGK5e7P44md_M-dyBt6aBkPdJLUTGBLn4vjPxQizymBW-87qclZFriR7Wej0h3&currency=USD"></script>
     <!-- Set up a container element for the button -->
-    
+  
     <script>
       paypal.Buttons({
         // Order is created on the server and the order id is returned
@@ -320,10 +309,11 @@
             // const element = document.getElementById('paypal-button-container');
             // element.innerHTML = '<h3>Thank you for your payment!</h3>';
             // Or go to another URL:  window.location.href = 'thank_you.html';
-             window.location.href='/verify_payment?transaction_id' + transaction.id
+            window.location.href='/verify_payment?transaction_id' + transaction.id
           });
         }
       }).render('#paypal-button-container');
     </script>
-  </body>
+
+    </body>
 </html>
